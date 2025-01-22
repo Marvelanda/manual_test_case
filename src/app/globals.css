@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --background: #ffffff;
+    --core: #0b3b3c;
+    --light-grey: #6d8a83;
+    --light-green: #e8efe9;
+    --bloody-red: #7e0707;
+}
+
+html {
+    @apply text-base font-normal;
+}
+
+body {
+    @apply font-tt-norms;
+
+    box-sizing: border-box;
+    background: var(--background);
+    font-variant-ligatures: no-common-ligatures;
+    color: var(--core);
+}

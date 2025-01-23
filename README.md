@@ -11,4 +11,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Another commands
 
-1. In order to check type errors you can run `yarn type-check`.
+1. In order to check tests you can run `yarn test`.
+2. In order to check type errors you can run `yarn type-check`.

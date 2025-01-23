@@ -3,8 +3,7 @@ import { clsx } from 'clsx';
 
 import { QuizModalTrigger } from '@/components/QuizModalTrigger/QuizModalTrigger';
 
-export const MainSection = () => {
-  return (
+export const MainSection = () => (
     <section
       className={clsx(
         'pb-[190px] pt-[30px] ',
@@ -19,7 +18,7 @@ export const MainSection = () => {
           'xsm:max-w-[464px] 2xsm:max-w-[350px] 3xsm:max-w-[300px]',
         )}
       >
-        <Image src="/images/logo.svg" alt={'logo'} height={40} width={40} />
+        <Image src="/images/logo.svg" alt="logo" height={40} width={40} />
 
         <div className="md:w-[468px] mt-[119px] 2xsm:w-[270px] 3xsm:w-[220px]">
           <h1
@@ -43,4 +42,3 @@ export const MainSection = () => {
       </div>
     </section>
   );
-};

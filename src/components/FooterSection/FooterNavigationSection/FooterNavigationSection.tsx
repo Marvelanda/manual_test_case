@@ -7,8 +7,7 @@ import { FooterNavigationSectionProps } from './FooterNavigationSection.types';
 export const FooterNavigationSection: FC<FooterNavigationSectionProps> = ({
   title,
   links = [],
-}) => {
-  return (
+}) => (
     <div className="xl:w-[175px] lg:w-[145px] md:w-[115px] 3xsm:w-[33.3%]">
       <h4
         className={clsx(
@@ -20,8 +19,7 @@ export const FooterNavigationSection: FC<FooterNavigationSectionProps> = ({
       </h4>
 
       <ul className="mt-5 flex flex-col gap-5">
-        {links.map(({ name, link }) => {
-          return (
+        {links.map(({ name, link }) => (
             <li key={name}>
               <Link
                 href={link}
@@ -30,9 +28,7 @@ export const FooterNavigationSection: FC<FooterNavigationSectionProps> = ({
                 {name}
               </Link>
             </li>
-          );
-        })}
+          ))}
       </ul>
     </div>
   );
-};

@@ -1,6 +1,6 @@
 export interface Option {
   display: string;
-  value: string;
+  value: string | boolean;
   isRejection: boolean;
 }
 

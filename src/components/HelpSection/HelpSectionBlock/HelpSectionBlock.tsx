@@ -2,8 +2,7 @@ import { FC } from 'react';
 
 import { HelpSectionProps } from './HelpSection.types';
 
-export const HelpSectionBlock: FC<HelpSectionProps> = ({ title, description, type }) => {
-  return (
+export const HelpSectionBlock: FC<HelpSectionProps> = ({ title, description, type }) => (
     <div className="flex flex-col justify-center">
       <div className="uppercase text-light-grey text-[10px] tracking-primary">{type}</div>
 
@@ -12,4 +11,3 @@ export const HelpSectionBlock: FC<HelpSectionProps> = ({ title, description, typ
       <p className="mt-[22px] text-lg leading-primary">{description}</p>
     </div>
   );
-};

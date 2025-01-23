@@ -8,14 +8,12 @@ import { FooterSocialMediaProps } from './FooterNavigationSocialMedia.types';
 
 export const FooterNavigationSocialMedia: FC<FooterSocialMediaProps> = ({
   links = [],
-}) => {
-  return (
+}) => (
     <div className="xl:w-[175px] lg:w-[145px] 3xsm:w-[115px]">
       <FooterNavigationSectionHeading title="Follow us" />
 
       <ul className="mt-5 flex gap-5">
-        {links.map(({ name, link, icon }) => {
-          return (
+        {links.map(({ name, link, icon }) => (
             <li key={name}>
               <Link
                 href={link}
@@ -27,9 +25,7 @@ export const FooterNavigationSocialMedia: FC<FooterSocialMediaProps> = ({
                 <FontAwesomeIcon size="lg" icon={icon} />
               </Link>
             </li>
-          );
-        })}
+          ))}
       </ul>
     </div>
   );
-};

@@ -11,8 +11,8 @@ export const getFinalMessage = (isSuccess: boolean) => {
     <>
       Great news! We have the perfect treatment for your hair loss. Proceed to{' '}
       <Link
-        className={'text-bloody-red'}
-        href={'https://www.manual.co'}
+        className="text-bloody-red"
+        href="https://www.manual.co"
         target="_blank"
         rel="noopener noreferrer"
         passHref

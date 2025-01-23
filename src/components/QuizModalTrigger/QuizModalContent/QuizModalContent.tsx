@@ -11,7 +11,7 @@ import { getFinalMessage } from './QuizModalContent.utils';
 
 export const QuizModalContent = () => {
   const [step, setStep] = useState(0);
-  const [answers, setAnswers] = useState<string[]>([]);
+  const [answers, setAnswers] = useState<(string | boolean)[]>([]);
   const [finalMessage, setFinalMessage] = useState<ReactNode>('');
 
   const { questions } =
@@ -20,7 +20,7 @@ export const QuizModalContent = () => {
   const questionsLength = questions.length;
 
   const handleAnswer = useCallback(
-    (value: string, isRejection: boolean) => {
+    (value: string | boolean, isRejection: boolean) => {
       setAnswers((prev) => {
         if (prev[step]) {
           const copiedArr = [...prev];
@@ -41,7 +41,7 @@ export const QuizModalContent = () => {
       }
 
       if (step < questionsLength - 1) {
-        setStep((step) => step + 1);
+        setStep((prev) => prev + 1);
 
         return;
       }
@@ -60,7 +60,7 @@ export const QuizModalContent = () => {
       return;
     }
 
-    setStep((step) => step - 1);
+    setStep((prev) => prev - 1);
   }, [finalMessage]);
 
   return (
@@ -76,20 +76,18 @@ export const QuizModalContent = () => {
           className="flex transition-transform duration-300"
           style={{ transform: `translateX(-${step * 100}%)` }}
         >
-          {questions.map(({ question, options }, index) => {
-            return (
-              <div key={question} className={'p-5 w-full shrink-0'}>
-                <QuizStep
-                  question={question}
-                  options={options}
-                  currentStepValue={answers[step]}
-                  questionIndex={index}
-                  onBack={handleBack}
-                  onAnswer={handleAnswer}
-                />
-              </div>
-            );
-          })}
+          {questions.map(({ question, options }, index) => (
+            <div key={question} className="p-5 w-full shrink-0">
+              <QuizStep
+                question={question}
+                options={options}
+                currentStepValue={answers[step]}
+                questionIndex={index}
+                onBack={handleBack}
+                onAnswer={handleAnswer}
+              />
+            </div>
+          ))}
         </div>
       ) : (
         <QuizResult finalMessage={finalMessage} onBack={handleBack} />

@@ -17,11 +17,7 @@ export const QuizStep: FC<QuizStepProps> = ({
   const canGoBack = questionIndex !== 0;
 
   return (
-    <div
-      className={
-        'p-5 rounded border border-solid shadow-md flex flex-col items-center justify-center'
-      }
-    >
+    <div className="p-5 rounded border border-solid shadow-md flex flex-col items-center justify-center">
       <div className="md:text-3xl xsm:text-2xl 3xsm:text-xl text-center">{question}</div>
 
       <ul className="flex flex-wrap justify-center gap-5 mt-10">
@@ -41,7 +37,8 @@ export const QuizStep: FC<QuizStepProps> = ({
                 'hover:cursor-pointer hover:border hover:border-solid hover:border-light-grey',
                 isActive && 'border border-solid border-light-grey',
               ])}
-              key={value}
+              key={display}
+              role="presentation"
               dangerouslySetInnerHTML={{ __html: html }}
             />
           );
@@ -49,12 +46,13 @@ export const QuizStep: FC<QuizStepProps> = ({
       </ul>
 
       <div
+        data-testid="back-button-id"
         className={clsx([
           'mt-5 pt-5 border-t border-solid border-t-gray-200 flex w-full flex-col',
           !canGoBack && 'invisible',
         ])}
       >
-        <Button className={'self-end'} onClick={onBack}>
+        <Button className="self-end" onClick={onBack}>
           Back
         </Button>
       </div>
